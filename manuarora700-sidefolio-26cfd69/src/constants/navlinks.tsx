@@ -23,8 +23,8 @@ export const navlinks = [
     icon: IconBriefcase2,
   },
   {
-    href: "/blog",
-    label: "Articles",
+    href: "/career",
+    label: "Career Resources",
     icon: IconArticle,
   },
   {
