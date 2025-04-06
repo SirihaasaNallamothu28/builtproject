@@ -1,32 +1,66 @@
-import { Container } from "@/components/Container";
-import { Heading } from "@/components/Heading";
-import { Highlight } from "@/components/Highlight";
-import { Paragraph } from "@/components/Paragraph";
-import { Products } from "@/components/Products";
-import { Metadata } from "next";
-import Image from "next/image";
+'use client';
+import { useState } from 'react';
 
-import { motion } from "framer-motion";
-import About from "@/components/About";
-
-export const metadata: Metadata = {
-  title: "About | John Doe",
-  description:
-    "John Doe is a developer, writer and speaker. He is a digital nomad and travels around the world while working remotely.",
+// Custom Card Component
+const Card = ({ children, className }) => {
+  return (
+    <div
+      className={`bg-white p-4 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 ${className}`}
+    >
+      {children}
+    </div>
+  );
 };
 
-export default function AboutPage() {
-  const images = [
-    "https://images.unsplash.com/photo-1692544350322-ac70cfd63614?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw1fHx8ZW58MHx8fHx8&auto=format&fit=crop&w=800&q=60",
-    "https://images.unsplash.com/photo-1692374227159-2d3592f274c9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw4fHx8ZW58MHx8fHx8&auto=format&fit=crop&w=800&q=60",
-    "https://images.unsplash.com/photo-1692005561659-cdba32d1e4a1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwxOHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=60",
-    "https://images.unsplash.com/photo-1692445381633-7999ebc03730?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwzM3x8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=60",
-  ];
+// Fake data for Slack members
+const fakeMembers = [
+  {
+    id: '1',
+    real_name: 'John Doe',
+    profile: {
+      image_192: 'https://randomuser.me/api/portraits/men/1.jpg',
+    },
+  },
+  {
+    id: '2',
+    real_name: 'Jane Smith',
+    profile: {
+      image_192: 'https://randomuser.me/api/portraits/women/1.jpg',
+    },
+  },
+  {
+    id: '3',
+    real_name: 'Alex Johnson',
+    profile: {
+      image_192: 'https://randomuser.me/api/portraits/men/2.jpg',
+    },
+  },
+  {
+    id: '4',
+    real_name: 'Sara Lee',
+    profile: {
+      image_192: 'https://randomuser.me/api/portraits/women/2.jpg',
+    },
+  },
+];
+
+const SlackMembers = () => {
+  const [members] = useState(fakeMembers); // Set the fake data
+
   return (
-    <Container>
-      <span className="text-4xl">💬</span>
-      <Heading className="font-black">About Me</Heading>
-      <About />
-    </Container>
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 p-6">
+      {members.map((member) => (
+        <Card key={member.id} className="hover:scale-105 transition-transform">
+          <img
+            src={member.profile.image_192}
+            alt={member.real_name}
+            className="rounded-full w-24 h-24 mx-auto"
+          />
+          <h3 className="text-center text-lg font-semibold mt-4">{member.real_name}</h3>
+        </Card>
+      ))}
+    </div>
   );
-}
+};
+
+export default SlackMembers;
