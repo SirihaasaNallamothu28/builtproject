@@ -31,8 +31,8 @@ export const navlinks = [
     icon: IconCalendarEvent,
   },
   {
-    href: "/resources",
-    label: "Resources",
+    href: "/career",
+    label: "Career Resources",
     icon: IconArticle,
   },
   {
