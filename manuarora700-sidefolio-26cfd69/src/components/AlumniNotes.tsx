@@ -61,35 +61,35 @@ export const AlumniNotes = () => {
   };
   
   return (
-    <div className="relative">
-      {/* Upload Button - Top Right */}
-      <div className="absolute top-0 right-0">
-        <button
-          onClick={() => setShowUploadForm(true)}
-          className="inline-flex items-center gap-0.5rem group/button rounded-full hover:scale-105 focus:outline-none transition ring-offset-gray-900 bg-gray-800 text-white shadow-lg shadow-black/20 sm:backdrop-blur-sm group-hover/button:bg-gray-50/15 group-hover/button:scale-105 focus-visible:ring-1 focus-visible:ring-offset-2 ring-gray-50/60 text-sm font-medium px-1rem py-0.5rem mt-auto origin-left"
-        >
-          <svg 
-            xmlns="http://www.w3.org/2000/svg" 
-            width="1rem" 
-            height="1rem" 
-            viewBox="0 0 24 24" 
-            fill="none" 
-            stroke="currentColor" 
-            strokeWidth="2" 
-            strokeLinecap="round" 
-            strokeLinejoin="round"
-          >
-            <path d="M12 5v14"></path>
-            <path d="M5 12h14"></path>
-          </svg>
-          Upload Notes
-        </button>
-      </div>
-      
+    <div>
       <div className="mt-2rem">
         <Paragraph className="mb-1.5rem mt-1rem">
           Browse through course notes shared by fellow alumni. Feel free to upload your own notes to help others succeed in their classes.
         </Paragraph>
+        
+        {/* Upload Button - Below description text */}
+        <div className="flex justify-end mb-2rem">
+          <button
+            onClick={() => setShowUploadForm(true)}
+            className="inline-flex items-center gap-0.5rem group/button rounded-full hover:scale-105 focus:outline-none transition ring-offset-gray-900 bg-gray-800 text-white shadow-lg shadow-black/20 sm:backdrop-blur-sm group-hover/button:bg-gray-50/15 group-hover/button:scale-105 focus-visible:ring-1 focus-visible:ring-offset-2 ring-gray-50/60 text-sm font-medium px-1rem py-0.5rem origin-left"
+          >
+            <svg 
+              xmlns="http://www.w3.org/2000/svg" 
+              width="1rem" 
+              height="1rem" 
+              viewBox="0 0 24 24" 
+              fill="none" 
+              stroke="currentColor" 
+              strokeWidth="2" 
+              strokeLinecap="round" 
+              strokeLinejoin="round"
+            >
+              <path d="M12 5v14"></path>
+              <path d="M5 12h14"></path>
+            </svg>
+            Upload Notes
+          </button>
+        </div>
         
         {notes.length === 0 ? (
           <div className="text-center py-2.5rem">
