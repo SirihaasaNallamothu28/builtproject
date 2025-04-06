@@ -16,8 +16,8 @@ export const navlinks = [
     icon: IconHome,
   },
   {
-    href: "/initiatives",
-    label: "Initiatives",
+    href: "/alumni",
+    label: "Alumni Notes",
     icon: IconBolt,
   },
   {
@@ -26,7 +26,7 @@ export const navlinks = [
     icon: IconUsers,
   },
   {
-    href: "/events",
+    href: "/projects",
     label: "Events",
     icon: IconCalendarEvent,
   },
