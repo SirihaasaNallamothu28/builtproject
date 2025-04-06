@@ -28,31 +28,9 @@ export const SingleProduct = ({ product }: { product: Product }) => {
         key={product.slug}
         className="relative"
       >
-        <Image
-          src={activeImage}
-          alt="thumbnail"
-          height="1000"
-          width="1000"
-          className="rounded-md object-contain"
-        />
         <div className="absolute bottom-0 bg-white h-40 w-full [mask-image:linear-gradient(to_bottom,transparent,white)]" />
       </motion.div>
-      <div className="flex flex-row justify-center my-8 flex-wrap">
-        {product.images.map((image, idx) => (
-          <button
-            onClick={() => setActiveImage(image)}
-            key={`image-thumbnail-${idx}`}
-          >
-            <Image
-              src={image}
-              alt="product thumbnail"
-              height="1000"
-              width="1000"
-              className="h-14 w-16 md:h-40 md:w-60 object-cover object-top mr-4 mb-r border rounded-lg border-neutral-100"
-            />
-          </button>
-        ))}
-      </div>
+      <div className="flex flex-row justify-center my-8 flex-wrap"></div>
       <div className="flex lg:flex-row justify-between items-center flex-col mt-20">
         <Heading className="font-black mb-2 pb-1"> {product.title}</Heading>
         <div className="flex space-x-2 md:mb-1 mt-2 md:mt-0">
